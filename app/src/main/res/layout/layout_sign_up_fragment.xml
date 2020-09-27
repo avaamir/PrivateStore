@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray100">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/my_toolbar_style"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/ivClose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:background="?attr/actionBarItemBackground"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        app:srcCompat="@drawable/ic_close" />
+
+
+                    <TextView
+                        style="@style/my_toolbar_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toLeftOf="@+id/ivClose"
+                        android:gravity="center_vertical"
+                        android:text="ثبت نام" />
+
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/myFloatLabeledEditText12"
+                    app:srcCompat="@drawable/ic_person"
+                    app:tint="@color/black"/>
+
+                <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+                    android:id="@+id/myFloatLabeledEditText12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="4dp"
+                    app:fletPaddingBottom="12dp"
+                    app:fletPaddingRight="8dp"
+                    app:fletTextColor="@color/colorPrimaryDark"
+                    app:fletTextSize="6sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <EditText
+                        android:id="@+id/et_name"
+                        style="@style/my_edit_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="نام و نام خانوادگی خود را وارد کنید"
+                        android:inputType="text" />
+
+                </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+
+                <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+                    android:id="@+id/myFloatLabeledEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="4dp"
+                    app:fletPaddingBottom="12dp"
+                    app:fletPaddingRight="8dp"
+                    app:fletTextColor="@color/colorPrimaryDark"
+                    app:fletTextSize="6sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView7"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/myFloatLabeledEditText12">
+
+                    <EditText
+                        android:id="@+id/et_phone"
+                        style="@style/my_edit_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="شماره تلفن خود را وارد کنید"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+
+                </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+                <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+                    android:id="@+id/myFloatLabeledEditText2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="4dp"
+                    app:fletPaddingBottom="12dp"
+                    app:fletPaddingRight="8dp"
+                    app:fletTextColor="@color/colorPrimaryDark"
+                    app:fletTextSize="6sp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView8"
+                    app:layout_constraintStart_toStartOf="@+id/myFloatLabeledEditText"
+                    app:layout_constraintTop_toBottomOf="@+id/myFloatLabeledEditText">
+
+                    <EditText
+                        android:id="@+id/et_password"
+                        style="@style/my_edit_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="رمز عبور خود را وارد کنید"
+                        android:inputType="textPassword" />
+
+                </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="21dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/myFloatLabeledEditText"
+                    app:srcCompat="@drawable/ic_phone" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView7"
+                    app:layout_constraintStart_toEndOf="@+id/myFloatLabeledEditText2"
+                    app:layout_constraintTop_toTopOf="@+id/myFloatLabeledEditText2"
+                    app:srcCompat="@drawable/ic_lock" />
+
+                <ImageView
+                    android:id="@+id/iv_show_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+                    app:layout_constraintStart_toStartOf="@+id/myFloatLabeledEditText2"
+                    android:background="?attr/actionBarItemBackground"
+                    app:srcCompat="@drawable/ic_no_eye" />
+
+                <ImageView
+                    android:id="@+id/iv_show_pass2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="?attr/actionBarItemBackground"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                    app:layout_constraintStart_toStartOf="@+id/myFloatLabeledEditText3"
+                    app:srcCompat="@drawable/ic_no_eye" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView8"
+                    app:layout_constraintStart_toEndOf="@+id/myFloatLabeledEditText2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView8"
+                    app:layout_constraintTop_toTopOf="@+id/myFloatLabeledEditText3"
+                    app:srcCompat="@drawable/ic_lock" />
+
+                <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+                    android:id="@+id/myFloatLabeledEditText3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:fletPaddingBottom="12dp"
+                    app:fletPaddingRight="8dp"
+                    app:fletTextColor="@color/colorPrimaryDark"
+                    app:fletTextSize="6sp"
+                    app:layout_constraintEnd_toEndOf="@+id/myFloatLabeledEditText2"
+                    app:layout_constraintStart_toStartOf="@+id/myFloatLabeledEditText2"
+                    app:layout_constraintTop_toBottomOf="@id/myFloatLabeledEditText2">
+
+                    <EditText
+                        android:id="@+id/et_confirm_password"
+                        style="@style/my_edit_text_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="رمز عبور خود را تکرار کنید"
+                        android:inputType="textPassword" />
+
+                </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+            android:id="@+id/btn_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:backgroundColor="@color/green"
+            app:radius="0dp"
+            app:isFlat="true"
+            app:text="ثبت نام" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

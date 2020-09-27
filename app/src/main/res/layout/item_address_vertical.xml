@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="address"
+            type="com.amir.ir.privatestore.models.Address" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/my_clickable_card_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/tiny_margin"
+        android:layout_marginRight="@dimen/medium_margin"
+        app:cardCornerRadius="4dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!--item header (title and etc..)-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@color/gray100"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_address_title"
+                    style="@style/my_dark_normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@{address.title}"
+                    android:textSize="14sp"
+                    tools:text="عنوان آدرس" />
+
+
+                <!--radio and text-->
+                <LinearLayout
+                    android:id="@+id/frame_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/gray600"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        style="@style/my_gray_normal_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/standard_margin"
+                        android:layout_marginRight="4dp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="انتخاب"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/radio_button"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginRight="4dp"
+                        android:buttonTint="@color/colorPrimary" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/tv_owner_name"
+                style="@style/my_gray_medium_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginRight="@dimen/standard_margin"
+                android:maxLines="1"
+                android:text="@{address.ownerName}"
+                android:textSize="11sp"
+                tools:text="امیرحسین مهدی پور" />
+
+
+            <TextView
+                android:id="@+id/tv_address"
+                style="@style/my_gray_medium_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="@dimen/standard_margin"
+                android:text="@{address.address}"
+                tools:text="یزد - صفاییه - خوابگاه دانشجویی" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tv_pelak"
+                    style="@style/my_gray_medium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/tiny_margin"
+                    android:text="@{address.postCode}"
+                    tools:text="12453223" />
+
+                <TextView
+                    style="@style/my_gray_medium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/standard_margin"
+                    android:text="کد پستی:" />
+
+                <TextView
+                    android:id="@+id/tv_post_code"
+                    style="@style/my_gray_medium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/tiny_margin"
+                    android:text="@{address.pelakForUi}"
+                    tools:text="4214234" />
+
+                <TextView
+                    style="@style/my_gray_medium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/standard_margin"
+                    android:text="پلاک:" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    style="@style/my_gray_medium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/tiny_margin"
+                    android:text="@{address.province}"
+                    tools:text="فارس" />
+
+                <TextView
+                    style="@style/my_gray_medium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/standard_margin"
+                    android:text="استان:" />
+
+
+                <TextView
+                    style="@style/my_gray_medium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/tiny_margin"
+                    android:text="@{address.city}"
+                    tools:text="شیراز" />
+
+                <TextView
+                    style="@style/my_gray_medium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/standard_margin"
+                    android:text="شهر:" />
+
+
+            </LinearLayout>
+
+
+            <!--todo felan in gone shod-->
+            <com.amir.ir.privatestore.ui.customs.MyBoldRaisedButton
+                android:id="@+id/btn_show_on_map"
+                android:layout_width="80dp"
+                android:layout_height="28dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:visibility="gone"
+                app:radius="5dp"
+                app:text="نمایش روی نقشه"
+                app:textSize="4sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|bottom"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/tv_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/actionBarItemBackground"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/iransans_medium"
+                        android:text="حذف"
+                        android:textColor="@color/deep_red"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/tv_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/standard_margin"
+                    android:background="?attr/actionBarItemBackground"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/iransans_medium"
+                        android:text="تغییر"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp" />
+
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>

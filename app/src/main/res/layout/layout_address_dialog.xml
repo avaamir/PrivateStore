@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray200"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                app:srcCompat="@drawable/ic_marker_1" />
+
+            <TextView
+                android:id="@+id/top_bar_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@id/icon"
+                android:fontFamily="@font/iransans_medium"
+                android:gravity="center_vertical"
+                android:text="ویرایش آدرس"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/actionBarItemBackground"
+                app:srcCompat="@drawable/ic_close" />
+
+        </RelativeLayout>
+
+        <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:fletPaddingBottom="12dp"
+            app:fletPaddingRight="8dp"
+            app:fletTextColor="@color/colorPrimaryDark"
+            app:fletTextSize="6sp">
+
+            <EditText
+                android:id="@+id/et_title"
+                style="@style/my_edit_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="عنوان آدرس (اختیاری)" />
+
+        </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+        <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:fletTextColor="@color/colorPrimaryDark"
+            app:fletPaddingBottom="12dp"
+            app:fletPaddingRight="8dp"
+            app:fletTextSize="6sp">
+
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/my_edit_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="نام گیرنده" />
+
+        </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+        <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:fletTextColor="@color/colorPrimaryDark"
+            app:fletPaddingBottom="12dp"
+            app:fletPaddingRight="8dp"
+            app:fletTextSize="6sp">
+
+            <EditText
+                android:id="@+id/et_address"
+                style="@style/my_edit_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="آدرس"
+                android:maxLength="60" />
+
+        </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+        <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:fletTextColor="@color/colorPrimaryDark"
+            app:fletPaddingBottom="12dp"
+            app:fletPaddingRight="8dp"
+            app:fletTextSize="6sp">
+
+            <EditText
+                android:id="@+id/et_pelak"
+                style="@style/my_edit_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="پلاک" />
+
+        </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+        <com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            app:fletTextColor="@color/colorPrimaryDark"
+            app:fletPaddingBottom="12dp"
+            app:fletPaddingRight="8dp"
+            app:fletTextSize="6sp">
+
+            <EditText
+                android:id="@+id/et_post_code"
+                style="@style/my_edit_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="کد پستی" />
+
+        </com.amir.ir.privatestore.ui.customs.MyFloatLabeledEditText>
+
+        <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/medium_margin"
+            app:radius="5dp"
+            app:text="ذخیره آدرس" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

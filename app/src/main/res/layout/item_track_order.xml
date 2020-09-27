@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/my_card_style"
+        android:layout_margin="@dimen/standard_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--start of each item-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray200">
+
+                <TextView
+                    style="@style/my_gray_normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="شماره سفارش" />
+
+                <TextView
+                    style="@style/my_black_bold_text"
+                    android:fontFamily="@font/consolas"
+                    android:layout_width="150dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="@{order.trackNumber}"
+                    tools:text="safir_298dfabf90ef0121" />
+
+
+            </RelativeLayout>
+
+
+            <!--start of each item-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray50">
+
+                <ImageView
+                    android:id="@+id/iv_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:background="?attr/actionBarItemBackground"
+                    app:tint="#4BACB8"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    app:srcCompat="@drawable/ic_arrow_left" />
+
+                <TextView
+                    style="@style/my_gray_normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="جزییات سفارش"
+                    android:textColor="#4BACB8" />
+
+
+            </RelativeLayout>
+
+
+            <!--start of each item-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray200">
+
+                <TextView
+                    style="@style/my_gray_normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="تاریخ" />
+
+                <TextView
+                    style="@style/my_black_bold_text"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="@{order.date}"
+                    tools:text="1389/10/12 20:23" />
+
+
+            </RelativeLayout>
+
+
+            <!--start of each item-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray50">
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/my_black_bold_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="@dimen/tiny_margin"
+                        android:text="تومان"/>
+
+                    <TextView
+                        android:id="@+id/tv_discount_amount"
+                        style="@style/my_black_bold_text"
+                        price="@{order.price}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        tools:text="3,000" />
+                </LinearLayout>
+
+
+                <!--start of tooman-->
+                <TextView
+                    style="@style/my_gray_normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="مبلغ کل" />
+
+
+            </RelativeLayout>
+
+
+            <!--start of each item-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray200">
+
+                <TextView
+                    style="@style/my_gray_normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="وضعیت" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    style="@style/my_black_bold_text"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:textColor="@color/green"
+                    tools:text="موفق" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <data>
+
+        <variable
+            name="order"
+            type="com.amir.ir.privatestore.models.Order" />
+    </data>
+
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="color"
+            type="com.amir.ir.privatestore.models.Color" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/frame_color_pick"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        android:gravity="center"
+        android:background="@drawable/shape_square_color_pick_not_selected">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_color"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="2dp"
+            app:pickColorDetermine="@{color}"
+            tools:src="@color/colorAccent"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tv_Color_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="آبی"
+            android:text="@{color.name}"
+            style="@style/my_gray_normal_text"
+            android:visibility="gone"
+            android:minHeight="20dp"
+            android:maxHeight="20dp"
+            android:gravity="center"
+            android:minWidth="64dp"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+</layout>

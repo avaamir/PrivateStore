@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.amir.ir.privatestore.viewmodels.ProductListActivityViewModel" />
+
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/frame_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray200"
+        android:orientation="vertical"
+        tools:context=".ui.activities.ProductListActivity">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.Toolbar
+                style="@style/my_toolbar_style"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:id="@+id/frame_toolbar_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:id="@+id/ivBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:background="?attr/actionBarItemBackground"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            app:srcCompat="@drawable/ic_back" />
+
+
+                        <TextView
+                            style="@style/my_toolbar_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="8dp"
+                            android:layout_toLeftOf="@+id/ivBack"
+                            android:gravity="center_vertical"
+                            android:text="@{viewModel.toolbarTitle}"
+                            tools:text="آرایشی و بهداشتی" />
+
+                        <ImageView
+                            android:id="@+id/ivSearch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:background="?attr/actionBarItemBackground"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            app:srcCompat="@drawable/ic_search"
+                            />
+
+                        <ImageView
+                            android:id="@+id/ivCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_toRightOf="@+id/ivSearch"
+                            android:background="?attr/actionBarItemBackground"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            app:srcCompat="@drawable/ic_cart" />
+                    </RelativeLayout>
+
+
+                    <!--frame search-->
+                    <RelativeLayout
+                        android:id="@+id/frame_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:visibility="invisible">
+
+                        <EditText
+                            android:id="@+id/etSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toLeftOf="@id/iv_search"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/iransans_light"
+                            android:gravity="right|center_vertical"
+                            android:hint="@string/hint_search"
+                            android:imeOptions="actionSearch"
+                            android:maxLength="15"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:scrollHorizontally="true"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/iv_search"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="16dp"
+                            android:tint="@color/gray700"
+                            android:background="?attr/actionBarItemBackground"
+                            app:srcCompat="@drawable/ic_search" />
+
+                        <ImageView
+                            android:id="@+id/ivClose"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="8dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="16dp"
+                            android:background="?attr/actionBarItemBackground"
+                            android:tint="@color/gray700"
+                            app:srcCompat="@drawable/ic_close" />
+
+
+                    </RelativeLayout>
+                </FrameLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/gray50"
+                    android:orientation="horizontal"
+                    app:layout_scrollFlags="snap">
+
+                    <!--start of frame view_type-->
+                    <FrameLayout
+                        android:id="@+id/frame_view_type"
+                        android:layout_width="?attr/actionBarSize"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:foreground="?attr/selectableItemBackground">
+
+                        <ImageView
+                            android:id="@+id/iv_change_view_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:srcCompat="@drawable/ic_view_grid"
+                            app:tint="@color/gray600" />
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="right"
+                            android:background="#70757575" />
+
+                    </FrameLayout>
+
+                    <!--start of frame filter-->
+                    <RelativeLayout
+                        android:id="@+id/frame_filter"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:background="?attr/selectableItemBackground">
+
+                        <TextView
+                            android:id="@+id/tv_filter_title"
+                            style="@style/my_gray_medium_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="@dimen/standard_margin"
+                            android:layout_marginTop="@dimen/standard_margin"
+                            android:layout_marginRight="@dimen/standard_margin"
+                            android:layout_marginBottom="@dimen/tiny_margin"
+                            android:text="فیلتر کردن" />
+
+                        <TextView
+                            style="@style/my_gray_normal_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_filter_title"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="@font/iransans_ultralight"
+                            android:text="رنگ، نوع، قیمت و .."
+                            android:textSize="8sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/tiny_margin"
+                            android:layout_toRightOf="@id/tv_filter_title"
+                            app:srcCompat="@drawable/ic_filter"
+                            app:tint="@color/gray600" />
+
+
+                        <View
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:background="#70757575" />
+
+                    </RelativeLayout>
+
+
+                    <!--<FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>-->
+
+                    <!--start of frame sort-->
+                    <RelativeLayout
+                        android:id="@+id/frame_sort"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackground">
+
+                        <TextView
+                            android:id="@+id/tv_sorting_title"
+                            style="@style/my_gray_medium_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="@dimen/standard_margin"
+                            android:layout_marginTop="@dimen/standard_margin"
+                            android:layout_marginRight="@dimen/standard_margin"
+                            android:layout_marginBottom="@dimen/tiny_margin"
+                            android:text="مرتب سازی" />
+
+                        <TextView
+                            android:id="@+id/tv_current_arrangement"
+                            style="@style/my_gray_normal_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tv_sorting_title"
+                            android:gravity="center"
+                            android:layout_alignRight="@+id/tv_sorting_title"
+                            android:layout_alignLeft="@+id/tv_sorting_title"
+                            android:fontFamily="@font/iransans_ultralight"
+                            android:text="@{viewModel.orderTitle}"
+                            android:textSize="8sp"
+                            tools:text="پربازدیدترین" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/tv_sorting_title"
+                            app:srcCompat="@drawable/ic_sort"
+                            app:tint="@color/gray600" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/frame_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/gray100">
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:theme="@style/AppTheme.Progressbar"
+                        android:indeterminate="true"/>
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_product_vertical" />
+
+
+        <!--start of animation + message frame-->
+        <LinearLayout
+            android:id="@+id/animation_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/large_margin"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/empty_list" />
+
+
+            <TextView
+                style="@style/my_gray_normal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="0dp"
+                android:gravity="center"
+                android:text="یافت نشد!"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/send_comment_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            app:srcCompat="@drawable/ic_comment_white" />
+
+        <TextView
+            android:id="@+id/top_bar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/send_comment_icon"
+            android:gravity="center_vertical"
+            android:text="ثبت نظر"
+            android:fontFamily="@font/iransans"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?attr/actionBarItemBackground"
+            app:srcCompat="@drawable/ic_close" />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray200"
+        android:layout_below="@id/top_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/send_comment_custom_dialog_enter_comment_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="نظر خود را در کادر زیر وارد کنید:"
+                android:textColor="@color/black"
+                android:fontFamily="@font/iransans_medium"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/map_activity_search_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="2dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+                <EditText
+                    android:id="@+id/etComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="100dp"
+                    android:background="@color/nothing"
+                    android:gravity="right"
+                    android:paddingTop="6dp"
+                    android:hint="نظر خود را بنویسید..."
+                    android:inputType="text"
+                    android:maxLength="200"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:shadowColor="@color/gray500"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray500"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/iransans"
+                    tools:ignore="HardcodedText,LabelFor,RtlSymmetry" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/send_comment_custom_dialog_comment_text_alert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:text="!! متن نظر نمیتواند خالی باشد"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:visibility="gone"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+        android:id="@+id/rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:srb_borderColor="@color/nothing"
+        app:srb_fillColor="@color/golden_stars"
+        app:srb_gravity="left"
+        app:srb_isIndicator="false"
+        app:srb_numberOfStars="5"
+        app:srb_rating="4"
+        app:srb_starBackgroundColor="@color/gray500"
+        app:srb_starCornerRadius="2"
+        app:srb_starSize="30dp"
+        app:srb_stepSize="1"
+        android:layout_above="@id/btnSendComment"
+        android:layout_centerHorizontal="true"/>
+
+    <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+        android:id="@+id/btnSendComment"
+        android:layout_width="150dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        app:radius="10dp"
+        app:text="ثبت نظر"/>
+
+</RelativeLayout>
+

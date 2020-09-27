@@ -1,0 +1,216 @@
+<layout>
+
+    <data>
+
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.CartActivity"
+        android:background="@color/gray100">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/colorPrimary"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical">
+
+                        <LinearLayout
+                            android:id="@+id/frame_clear_cart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:foreground="?attr/selectableItemBackground">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="@dimen/standard_margin"
+                                app:srcCompat="@drawable/ic_delete"
+                                app:tint="@color/white"
+                                tools:ignore="RtlSymmetry" />
+
+                            <TextView
+                                android:id="@+id/cart_activity_delete_cart_text"
+                                style="@style/my_gray_normal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="@dimen/medium_margin"
+                                android:text="خالی کردن سبد خرید"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        style="@style/my_toolbar_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="16dp"
+                        android:text="سبد خرید" />
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="16dp"
+                        android:background="?attr/actionBarItemBackground"
+                        app:srcCompat="@drawable/ic_back"
+                        android:tint="@color/white" />
+
+
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    style="@style/my_gray_normal_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:layout_marginRight="@dimen/medium_margin"
+                    android:layout_marginBottom="@dimen/standard_margin"
+                    android:text="جمع کل خرید"
+                    android:textColor="@color/price" />
+
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:layout_marginRight="@dimen/medium_margin"
+                    android:layout_marginBottom="@dimen/standard_margin"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/my_black_bold_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="@dimen/tiny_margin"
+                        android:text="تومان"
+                        android:textColor="@color/price" />
+
+                    <TextView
+                        android:id="@+id/tv_total_final_all_items_price"
+                        style="@style/my_black_bold_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dp"
+                        android:textColor="@color/price"
+                        tools:text="51,000" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <LinearLayout
+            android:id="@+id/frame_empty_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/cart_activity_animation_view"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/bag_error"
+                android:layout_marginBottom="@dimen/medium_margin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/my_gray_normal_text"
+                android:layout_margin="0dp"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="سبد خرید شما خالیست"/>
+
+        </LinearLayout>
+
+
+
+
+        <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+            android:id="@+id/btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/medium_margin"
+            android:layout_marginRight="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/standard_margin"
+            android:layout_gravity="bottom"
+            app:radius="5dp"
+            android:layout_alignParentBottom="true"
+            app:text="ادامه"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/standard_margin"
+            tools:itemCount="2"
+            android:layout_below="@id/app_bar"
+            android:layout_above="@id/btn_continue"
+            tools:listitem="@layout/item_cart_item" />
+
+    </RelativeLayout>
+
+
+</layout>

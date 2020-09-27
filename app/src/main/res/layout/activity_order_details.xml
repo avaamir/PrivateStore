@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.amir.ir.privatestore.viewmodels.OrderDetailsActivityViewModel" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray100">
+
+
+        <ProgressBar
+            android:id="@+id/mainProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="visible"
+            app:layout_anchor="@+id/frame_main"
+            android:theme="@style/AppTheme.Progressbar"
+            app:layout_anchorGravity="center" />
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/colorPrimary"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        style="@style/my_toolbar_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="16dp"
+                        android:text="جزییات مرسوله" />
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="16dp"
+                        android:background="?attr/actionBarItemBackground"
+                        android:tint="@color/white"
+                        app:srcCompat="@drawable/ic_back" />
+
+
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/frame_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+            <LinearLayout
+                android:id="@+id/frame_scroll_View"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <TextView
+                    style="@style/my_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="جزییات نحوه ارسال" />
+
+
+                <androidx.cardview.widget.CardView
+                    style="@style/my_card_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <!--start of each item-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray200">
+
+                            <TextView
+                                style="@style/my_gray_normal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:text="نحوه ارسال" />
+
+
+                            <!--start of tooman-->
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_spinner"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_margin="@dimen/standard_margin">
+
+                                    <Spinner
+                                        android:id="@+id/spinner_delivery_type"
+                                        android:layout_width="wrap_content"
+                                        android:minWidth="90dp"
+                                        android:layout_height="35dp"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        android:background="@null"
+                                        android:gravity="center"/>
+
+
+                                </FrameLayout>
+
+
+
+                        </RelativeLayout>
+
+                        <!--start of each item-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray50">
+
+                            <TextView
+                                style="@style/my_gray_normal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:text="هزینه" />
+
+
+                            <!--start of tooman-->
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginRight="@dimen/tiny_margin"
+                                    android:text="تومان" />
+
+                                <TextView
+                                    android:id="@+id/tv_delivery_price_1"
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    tools:text="51,000" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <!--start of each item-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray200">
+
+                            <TextView
+                                android:id="@+id/tv_delivery_desc"
+                                android:textColor="@color/gray700"
+                                android:fontFamily="@font/iransans"
+                                android:gravity="right|center_vertical"
+                                android:ellipsize="end"
+                                android:lines="2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:text="@string/post_method_desc" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <!--.....................-->
+
+                <TextView
+                    style="@style/my_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="مجموع پرداختی" />
+
+
+                <androidx.cardview.widget.CardView
+                    style="@style/my_card_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <!--start of each item-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray200">
+
+                            <TextView
+                                android:id="@+id/tv_delivery_type"
+                                style="@style/my_gray_normal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:text="مجموع کالاها" />
+
+
+                            <!--start of tooman-->
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginRight="@dimen/tiny_margin"
+                                    android:text="تومان" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_main_price"
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    tools:text="51,000" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <!--start of each item-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray50">
+
+                            <TextView
+                                style="@style/my_gray_normal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:text="مجموع تخفیف ها" />
+
+
+                            <!--start of tooman-->
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginRight="@dimen/tiny_margin"
+                                    android:text="تومان" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_discount"
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    tools:text="51,000" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <!--start of each item-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray200">
+
+                            <TextView
+                                style="@style/my_gray_normal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:text="هزینه ارسال" />
+
+
+                            <!--start of tooman-->
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginRight="@dimen/tiny_margin"
+                                    android:text="تومان" />
+
+                                <TextView
+                                    android:id="@+id/tv_delivery_price"
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    tools:text="51,000" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                        <!--start of each item-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray50">
+
+                            <TextView
+                                style="@style/my_gray_normal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:text="مالیات" />
+
+
+                            <!--start of tooman-->
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginRight="@dimen/tiny_margin"
+                                    android:text="تومان" />
+
+                                <TextView
+                                    android:id="@+id/tv_tax_price"
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    tools:text="51,000" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                        <!--start of each item-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray200">
+
+                            <TextView
+                                style="@style/my_gray_normal_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_margin="@dimen/standard_margin"
+                                android:text="جمع کل خرید"
+                                android:textColor="@color/price" />
+
+
+                            <!--start of tooman-->
+                            <FrameLayout
+                                android:id="@+id/frame_final_price_red"
+                                android:layout_toRightOf="@+id/frame_final_price"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:visibility="gone">
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/deep_red"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        style="@style/my_black_bold_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="0dp"
+                                        android:layout_marginRight="@dimen/tiny_margin"
+                                        android:text="تومان"
+                                        android:textColor="@color/deep_red" />
+
+                                    <TextView
+                                        android:id="@+id/tv_total_final_price_red"
+                                        style="@style/my_black_bold_text"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="0dp"
+                                        android:textColor="@color/deep_red"
+                                        tools:text="51,000" />
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+                            <!--start of tooman-->
+                            <LinearLayout
+                                android:id="@+id/frame_final_price"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="@dimen/standard_margin"
+                                android:layout_marginTop="@dimen/standard_margin"
+                                android:layout_marginBottom="@dimen/standard_margin">
+
+                                <TextView
+                                    android:id="@+id/tv_tooman_green"
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginRight="@dimen/tiny_margin"
+                                    android:text="تومان"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/price" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_final_price_green"
+                                    style="@style/my_black_bold_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="0dp"
+                                    android:textColor="@color/price"
+                                    tools:text="51,000" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    style="@style/my_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:text="لیست سفارش" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_order_summery"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/standard_margin"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_product_horizontal" />
+
+
+                <TextView
+                    style="@style/my_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:text="آدرس تحویل" />
+
+
+                <androidx.cardview.widget.CardView
+                    style="@style/my_card_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/standard_margin">
+
+
+                        <TextView
+                            android:id="@+id/tv_owner_name"
+                            style="@style/my_gray_medium_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="@dimen/standard_margin"
+                            android:layout_marginRight="@dimen/standard_margin"
+                            android:maxLines="1"
+                            android:text="@{viewModel.address.ownerName}"
+                            android:textSize="11sp"
+                            tools:text="امیرحسین مهدی پور" />
+
+
+                        <TextView
+                            android:id="@+id/tv_address"
+                            style="@style/my_gray_medium_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_margin="@dimen/standard_margin"
+                            android:text="@{viewModel.address.address}"
+                            tools:text="یزد - صفاییه - خوابگاه دانشجویی" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/tv_pelak"
+                                style="@style/my_gray_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="@dimen/tiny_margin"
+                                android:text="@{viewModel.address.postCode}"
+                                tools:text="12453223" />
+
+                            <TextView
+                                style="@style/my_gray_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="@dimen/standard_margin"
+                                android:text="کد پستی:" />
+
+                            <TextView
+                                android:id="@+id/tv_post_code"
+                                style="@style/my_gray_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="@dimen/tiny_margin"
+                                android:text="@{viewModel.address.pelakForUi}"
+                                tools:text="4214234" />
+
+                            <TextView
+                                style="@style/my_gray_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:layout_marginRight="@dimen/standard_margin"
+                                android:text="پلاک:" />
+
+
+                        </LinearLayout>
+
+
+                        <com.amir.ir.privatestore.ui.customs.MyBoldRaisedButton
+                            android:id="@+id/btn_show_on_map"
+                            android:layout_width="80dp"
+                            android:layout_height="28dp"
+                            android:layout_gravity="left|bottom"
+                            android:layout_marginTop="@dimen/standard_margin"
+                            app:radius="5dp"
+                            app:text="نمایش روی نقشه"
+                            android:visibility="gone"
+                            app:textSize="4sp" />
+
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    style="@style/my_title_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/standard_margin"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:text="نوع پرداخت" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_frame_discount_code"
+                    style="@style/my_card_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/medium_margin"
+                    android:layout_marginRight="@dimen/medium_margin">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="vertical"
+                        android:padding="@dimen/standard_margin">
+
+
+                        <!--radio and text-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/my_gray_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:paddingTop="2dp"
+                                android:text="پرداخت اینترنتی" />
+
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/radio_internet_payment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorAccent"
+                                android:checked="true" />
+
+                        </LinearLayout>
+
+                        <!--radio and text-->
+                        <LinearLayout
+                            android:id="@+id/frame_radio_cash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="@dimen/tiny_margin"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/my_gray_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:paddingTop="2dp"
+                                android:text="پرداخت نقدی" />
+
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/radio_cash_payment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorAccent" />
+
+                        </LinearLayout>
+
+
+                        <!--switch and text-->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="@dimen/standard_margin"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.SwitchCompat
+                                android:id="@+id/switch_discount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/standard_margin"
+                                android:buttonTint="@color/colorPrimary"
+                                android:checked="false"
+                                app:track="@drawable/switch_compat_track"
+                                android:thumb="@drawable/switch_compat_thumb"/>
+
+                            <TextView
+                                style="@style/my_gray_medium_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="@dimen/standard_margin"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:paddingTop="2dp"
+                                android:text="کد تخفیف" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/frame_discount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+
+                            <FrameLayout
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="8dp">
+
+                                <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+                                    android:id="@+id/btn_check_discount_code"
+                                    android:gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:backgroundColor="@color/white"
+                                    app:isFlat="true"
+                                    app:text="ثبت"
+                                    app:progressTint="@color/colorAccent"
+                                    app:textColor="@color/colorAccent" />
+
+                                <ImageView
+                                    android:id="@+id/iv_discount_applied"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_check"
+                                    android:tint="@color/green"
+                                    android:layout_gravity="center"
+                                    android:visibility="gone"
+                                    />
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp">
+                                <EditText
+                                    android:id="@+id/et_discount"
+                                    style="@style/my_edit_text_style"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="0dp"
+                                    android:hint="کد تخفیف خود را وارد کنید"
+                                    android:visibility="visible"/>
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+                    android:id="@+id/btn_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_margin="@dimen/medium_margin"
+                    app:backgroundColor="@color/green"
+                    app:radius="5dp"
+                    app:text="ثبت درخواست" />
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

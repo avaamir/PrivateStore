@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray100">
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/my_toolbar_style"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <ImageView
+                        android:id="@+id/ivClose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="8dp"
+                        android:background="?attr/actionBarItemBackground"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        app:srcCompat="@drawable/ic_close" />
+
+
+                    <TextView
+                        style="@style/my_toolbar_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_toLeftOf="@+id/ivClose"
+                        android:gravity="center_vertical"
+                        android:text="تایید کد امنیتی" />
+
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/my_gray_desc_normal_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/iransans_medium"
+            android:text="لطفا منتظر بمانید تا کد تایید برای شما ارسال شود و سپس آن را وارد کنید"
+            android:textColor="@color/primary_light"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+        <com.mukesh.OtpView
+            android:id="@+id/otp_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:itemCount="6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.26999998"
+            app:lineColor="@color/primary_light"
+            android:fontFamily="@font/iransans_medium"
+            tools:text="234214"
+            android:layout_marginEnd="32dp"
+            android:textColor="@color/primary_dark"
+            android:itemBackground="@color/white"
+            android:inputType="number"
+            app:viewType="line"
+            />
+
+        <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+            android:id="@+id/btn_re_send"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:fontFamily="@font/iransans_medium"
+            android:textSize="20sp"
+            app:image="@drawable/ic_replay"
+            app:isFlat="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/otp_view"
+            app:layout_constraintVertical_bias="0.25"
+            app:radius="4dp"
+            tools:text="2 : 59"
+            app:backgroundColor="@color/gray400"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

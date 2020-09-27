@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.amir.ir.privatestore.viewmodels.CategoryActivityViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray100">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/my_toolbar_style"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:id="@+id/frame_toolbar_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <ImageView
+                            android:id="@+id/ivBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:background="?attr/actionBarItemBackground"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            app:srcCompat="@drawable/ic_back" />
+
+
+                        <TextView
+                            style="@style/my_toolbar_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="8dp"
+                            android:layout_toLeftOf="@+id/ivBack"
+                            android:gravity="center_vertical"
+                            android:text="@{viewModel.toolbarTitle}"
+                            tools:text="آرایشی و بهداشتی" />
+
+                        <ImageView
+                            android:id="@+id/ivSearch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:background="?attr/actionBarItemBackground"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            app:srcCompat="@drawable/ic_search" />
+
+                        <ImageView
+                            android:id="@+id/ivCart"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_toRightOf="@+id/ivSearch"
+                            android:background="?attr/actionBarItemBackground"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            app:srcCompat="@drawable/ic_cart" />
+                    </RelativeLayout>
+
+
+                    <!--frame search-->
+                    <RelativeLayout
+                        android:id="@+id/frame_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:visibility="invisible">
+
+                        <EditText
+                            android:id="@+id/etSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_toLeftOf="@id/iv_search"
+                            android:background="@null"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/iransans_light"
+                            android:gravity="right|center_vertical"
+                            android:hint="@string/hint_search"
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:maxLength="15"
+                            android:maxLines="1"
+                            android:scrollHorizontally="true"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/iv_search"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="16dp"
+                            android:background="?attr/actionBarItemBackground"
+                            android:tint="@color/gray700"
+                            app:srcCompat="@drawable/ic_search" />
+
+                        <ImageView
+                            android:id="@+id/ivClose"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="16dp"
+                            android:background="?attr/actionBarItemBackground"
+                            android:padding="8dp"
+                            android:tint="@color/gray700"
+                            app:srcCompat="@drawable/ic_close" />
+
+
+                    </RelativeLayout>
+                </FrameLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/frame_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray100"
+            android:fillViewport="true"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <include
+                    android:id="@+id/category_frame"
+                    layout="@layout/template_category" />
+
+                <include
+                    android:id="@+id/frame_newest"
+                    layout="@layout/template_new_products" />
+
+                <include
+                    android:id="@+id/frame_slides"
+                    layout="@layout/template_slides_category"
+                    app:viewModel="@{viewModel}" />
+
+
+                <include
+                    android:id="@+id/frame_most_sell"
+                    layout="@layout/template_most_sell" />
+
+                <include
+                    android:id="@+id/frame_our_recommend"
+                    layout="@layout/template_our_recommend" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Progressbar"
+            android:layout_gravity="center"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

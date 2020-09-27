@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    style="@style/my_toolbar_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="16dp"
+                    android:text="در حال آماده سازی" />
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    app:srcCompat="@drawable/ic_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="16dp"
+                    android:background="?attr/actionBarItemBackground"
+                    android:tint="@color/white" />
+
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray100"
+            tools:context=".ui.activities.DeliveryPreparationActivity">
+
+
+            <TextView
+                android:id="@+id/textView12"
+                style="@style/my_gray_normal_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:maxLines="10"
+                android:text="محصول شما در حال آماده سازی و ارسال میباشد. به علت کمبود پیک و نوپا بودن شرکت ممکن است محصول با کمی تاخیر به دست شما برسد. نهایتا تا دو ساعت دیگر محصول به دست شما خواهد رسید. از شکیبایی و صبر شما سپاسگزاریم."
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView30"
+                style="@style/my_gray_normal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="تیم شاپ 69"
+                android:textColor="@color/primary_dark"
+                app:layout_constraintEnd_toEndOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+                android:id="@+id/buttonCall1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
+                app:image="@drawable/ic_call"
+                app:backgroundColor="@color/colorAccent"
+                app:layout_constraintBottom_toTopOf="@+id/buttonCall2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:radius="10dp"
+                app:text="تماس با ما خط اول" />
+
+            <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+                android:id="@+id/buttonCall2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:backgroundColor="@color/colorAccent"
+                android:layout_marginBottom="16dp"
+                app:image="@drawable/ic_call"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/buttonCall1"
+                app:layout_constraintStart_toStartOf="@+id/buttonCall1"
+                app:radius="10dp"
+                app:text="تماس با ما خط دوم" />
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView30"
+                app:srcCompat="@drawable/ic_logo_144dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_margin="32dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/buttonCall1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+                app:layout_constraintVertical_bias="0.0">
+
+                <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+                    android:id="@+id/btnOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:radius="10dp"
+                    android:fontFamily="@font/iransans"
+                    app:text="رفتن به صفحه سفارشات" />
+
+                <com.amir.ir.privatestore.ui.customs.MyRaisedButton
+                    android:id="@+id/btnMain"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="50dp"
+                    app:radius="10dp"
+                    android:fontFamily="@font/iransans"
+                    app:text="رفتن به صفحه اصلی" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

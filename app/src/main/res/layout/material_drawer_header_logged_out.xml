@@ -1,0 +1,163 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_gradient"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:padding="@dimen/standard_margin">
+
+
+        <TextView
+            android:id="@+id/header_app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/belham"
+            android:gravity="center"
+            android:text="@string/app_name_fa"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/shape_button_outlined_background"
+            android:fontFamily="@font/iransans"
+            android:gravity="center"
+            android:paddingLeft="@dimen/standard_margin"
+            android:paddingTop="2dp"
+            android:paddingBottom="1dp"
+            android:paddingRight="@dimen/standard_margin"
+            android:text="ورود و ثبت نام"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/ic_person"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_app_name"
+            app:tint="@color/white" />
+
+        <!--bayad bashe ketabkhune niaz dare behesh-->
+        <RelativeLayout
+            android:id="@+id/material_drawer_account_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/material_drawer_account_header_height"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
+
+            <com.mikepenz.materialdrawer.view.BezelImageView
+                android:id="@+id/material_drawer_account_header_current"
+                android:layout_width="@dimen/material_drawer_account_header_selected"
+                android:layout_height="@dimen/material_drawer_account_header_selected"
+                android:layout_alignBottom="@+id/material_drawer_account_header_text_switcher"
+                android:layout_marginTop="5dp"
+                android:layout_toStartOf="@+id/material_drawer_account_header_text_switcher"
+                android:layout_toLeftOf="@+id/material_drawer_account_header_text_switcher"
+                android:clickable="true"
+                android:elevation="2dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/material_drawer_account_header_current"
+                android:layout_alignParentRight="true"
+                android:gravity="right">
+
+                <com.mikepenz.materialdrawer.view.BezelImageView
+                    android:id="@+id/material_drawer_account_header_small_first"
+                    android:layout_width="@dimen/material_drawer_account_header_secondary"
+                    android:layout_height="@dimen/material_drawer_account_header_secondary"
+                    android:layout_marginRight="@dimen/material_drawer_vertical_padding"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:visibility="gone" />
+
+                <com.mikepenz.materialdrawer.view.BezelImageView
+                    android:id="@+id/material_drawer_account_header_small_second"
+                    android:layout_width="@dimen/material_drawer_account_header_secondary"
+                    android:layout_height="@dimen/material_drawer_account_header_secondary"
+                    android:layout_marginRight="@dimen/material_drawer_vertical_padding"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:visibility="gone" />
+
+                <com.mikepenz.materialdrawer.view.BezelImageView
+                    android:id="@+id/material_drawer_account_header_small_third"
+                    android:layout_width="@dimen/material_drawer_account_header_secondary"
+                    android:layout_height="@dimen/material_drawer_account_header_secondary"
+                    android:layout_marginRight="@dimen/material_drawer_vertical_padding"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/material_drawer_account_header_text_section"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_alignBaseline="@+id/material_drawer_account_header_current"
+                android:layout_marginBottom="@dimen/material_drawer_padding"
+                android:layout_toLeftOf="@+id/material_drawer_account_header_current"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingRight="5dp">
+
+                <TextView
+                    android:id="@+id/material_drawer_account_header_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:textSize="@dimen/material_drawer_account_header_text" />
+
+                <TextView
+                    android:id="@+id/material_drawer_account_header_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/material_drawer_vertical_padding"
+                    android:fontFamily="sans-serif"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:textSize="@dimen/material_drawer_account_header_text" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/material_drawer_account_header_text_switcher"
+                android:layout_width="@dimen/material_drawer_account_header_dropdown"
+                android:layout_height="@dimen/material_drawer_account_header_dropdown"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/material_drawer_vertical_padding"
+                android:layout_marginBottom="@dimen/material_drawer_account_header_dropdown_margin_bottom" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout><!-- From: file:/Users/mikepenz/Drive/Development/AndroidLibraries/MaterialDrawer/library/src/main/res/layout/material_drawer_header.xml -->
+
+
+</FrameLayout>

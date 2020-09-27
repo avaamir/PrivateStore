@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="category"
+            type="com.amir.ir.privatestore.models.Category" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        style="@style/my_clickable_card_style"
+        android:layout_width="@dimen/item_category_width"
+        android:layout_height="@dimen/item_category_height"
+        android:layout_margin="@dimen/tiny_margin"
+        app:cardUseCompatPadding="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray50">
+
+            <ImageView
+                android:id="@+id/imageView"
+                imageUrl="@{category.image}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/ic_category_condom_sample" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/bg_black_transparent_for_text"
+                android:fontFamily="@font/iransans"
+                android:gravity="center"
+                android:text="@{category.title}"
+                android:textColor="@color/white"
+                tools:text="آرایشی و بهداشتی" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

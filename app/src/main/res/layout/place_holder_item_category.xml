@@ -1,0 +1,17 @@
+<androidx.cardview.widget.CardView android:layout_width="@dimen/item_category_width"
+    android:layout_height="@dimen/item_category_height"
+    style="@style/my_clickable_card_style"
+    android:layout_marginTop="@dimen/standard_margin"
+    android:layout_marginBottom="@dimen/standard_margin"
+    android:layout_marginRight="@dimen/tiny_margin"
+    android:layout_marginLeft="@dimen/tiny_margin"
+    app:cardCornerRadius="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/silver"/>
+
+</androidx.cardview.widget.CardView>

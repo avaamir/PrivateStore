@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="category"
+            type="com.amir.ir.privatestore.models.Category" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/my_clickable_card_style"
+        android:layout_width="@dimen/item_category_width"
+        android:layout_height="@dimen/item_category_height"
+        app:cardUseCompatPadding="false"
+        android:layout_margin="@dimen/tiny_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_rect_rounded">
+
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/imageView"
+                imageUrl="@{category.image}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@color/red"
+                app:riv_border_width="0dp"
+                app:riv_corner_radius="10dp"
+                app:riv_mutate_background="true"
+                app:riv_tile_mode="repeat" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/bg_item_category_text_pre_lollipop"
+                android:fontFamily="@font/iransans"
+                android:gravity="center"
+                android:text="@{category.title}"
+                android:textColor="@color/white"
+                tools:text="آرایشی و بهداشتی" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

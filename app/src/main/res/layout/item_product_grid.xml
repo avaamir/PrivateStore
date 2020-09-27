@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.amir.ir.privatestore.models.Product" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        style="@style/my_clickable_card_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        app:cardCornerRadius="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/ivProduct"
+                imageUrl="@{product.image}"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/product_condom_sample_2" />
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/my_gray_normal_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:lines="2"
+                android:text="@{product.name}"
+                app:layout_constraintEnd_toEndOf="@+id/ivProduct"
+                app:layout_constraintStart_toStartOf="@+id/ivProduct"
+                app:layout_constraintTop_toBottomOf="@+id/ivProduct"
+                tools:text="کاندوم تاخیری خاردار مدل هیبریدی" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/gray200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <TextView
+                android:id="@+id/tvMainTooman"
+                style="@style/my_gray_normal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="تومان"
+                android:textColor="@color/deep_red"
+                app:layout_constraintStart_toStartOf="@+id/divider"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+            <TextView
+                android:id="@+id/tvRedPrice"
+                style="@style/my_gray_normal_text"
+                price="@{product.mainPrice}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/deep_red"
+                app:layout_constraintStart_toEndOf="@+id/tvMainTooman"
+                app:layout_constraintTop_toTopOf="@+id/tvMainTooman"
+                tools:text="30,000" />
+
+            <TextView
+                android:id="@+id/tvDiscountTooman"
+                style="@style/my_gray_normal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="4dp"
+                android:text="تومان"
+                android:textColor="@color/price"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvMainTooman"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvMainTooman"
+                app:layout_constraintTop_toBottomOf="@+id/tvMainTooman" />
+
+            <TextView
+                android:id="@+id/tvGreenPrice"
+                style="@style/my_gray_normal_text"
+                price="@{product.discountPrice}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/price"
+                app:layout_constraintStart_toEndOf="@+id/tvDiscountTooman"
+                app:layout_constraintTop_toTopOf="@+id/tvDiscountTooman"
+                tools:text="20,000" />
+
+            <View
+                android:id="@+id/strike_line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="2dp"
+                android:background="@color/md_red_300"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRedPrice"
+                app:layout_constraintEnd_toEndOf="@+id/tvRedPrice"
+                app:layout_constraintStart_toStartOf="@+id/tvRedPrice"
+                app:layout_constraintTop_toTopOf="@+id/tvRedPrice" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/gpDiscountPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:constraint_referenced_ids="tvRedPrice,strike_line,tvMainTooman" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
